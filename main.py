@@ -38,7 +38,8 @@ def obtener_tasas_bcv_real():
             fecha_texto = fecha_tag.text.strip() if fecha_tag else "Fecha no encontrada"
 
             def limpiar(texto):
-                return float(texto.replace(',', '.'))
+                # Elimina el punto de los miles y luego cambia la coma decimal por punto
+                return float(texto.replace('.', '').replace(',', '.'))
 
             return {
                 "fuente": "Banco Central de Venezuela",
